@@ -1,0 +1,29 @@
+#!name = Node & AI Detector
+#!desc = Node quality + IP purity + security flags + GPT/Claude/Gemini unlock check, shown as a Surge Info Panel. See NAD-README.md for setup, limitations (WebRTC/DNS leak, node-name detection) and privacy notes.
+#!category = Network
+#!icon = network.badge.shield.half.filled
+
+[Panel]
+Node & AI Detector = script-name=Node-AI-Detector,update-interval=1
+
+[Script]
+Node-AI-Detector = type=generic,script-path=https://raw.githubusercontent.com/Anymoice/surge/main/nad-panel.js,timeout=25
+NAD-Toggle-Debug = type=generic,script-path=https://raw.githubusercontent.com/Anymoice/surge/main/nad-toggle-debug.js,timeout=5
+
+# Route the check domains through whatever policy is currently active for
+# your proxy group, so the module measures YOUR node's exit — not
+# Surge's direct connection. Replace PROXY with your outbound policy /
+# policy-group name. Without this rule the panel will report the
+# characteristics of your direct/local network instead of the proxy.
+[Rule]
+DOMAIN-SUFFIX,ip-api.com,PROXY
+DOMAIN-SUFFIX,ipwho.is,PROXY
+DOMAIN-SUFFIX,ipapi.co,PROXY
+DOMAIN,1.1.1.1,PROXY
+DOMAIN-SUFFIX,torproject.org,PROXY
+DOMAIN-SUFFIX,ipify.org,PROXY
+DOMAIN-SUFFIX,openai.com,PROXY
+DOMAIN-SUFFIX,claude.ai,PROXY
+DOMAIN-SUFFIX,anthropic.com,PROXY
+DOMAIN-SUFFIX,google.com,PROXY
+DOMAIN-SUFFIX,googleapis.com,PROXY
