@@ -1,0 +1,12 @@
+#!name=Surge-Node-AI-Detector
+#!desc=检测当前 Surge 节点的 IP 纯净度、IP 类型、位置以及 ChatGPT/Claude 可用性
+#!author=Anymoice
+#!homepage=https://github.com/Anymoice/surge
+#!arguments=策略组:Proxy
+
+[Script]
+Surge-Node-AI-Detector-Panel = type=generic,timeout=25,script-path=https://raw.githubusercontent.com/Anymoice/surge/main/Surge-Node-AI-Detector.js,script-update-interval=0,argument=mode=panel&group={{{策略组}}}
+Surge-Node-AI-Detector-Watch = type=cron,timeout=25,cronexp="* * * * *",script-path=https://raw.githubusercontent.com/Anymoice/surge/main/Surge-Node-AI-Detector.js,script-update-interval=0,argument=mode=watch&group={{{策略组}}}
+
+[Panel]
+Surge-Node-AI-Detector = title=Surge-Node-AI-Detector,content=正在检测当前节点…,style=info,icon=network.badge.shield.half.filled,script-name=Surge-Node-AI-Detector-Panel,update-interval=60
