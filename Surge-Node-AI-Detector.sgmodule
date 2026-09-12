@@ -1,0 +1,15 @@
+#!name=Surge-Node-AI-Detector
+#!desc=节点切换后自动检测 IP 纯净度、IP 类型、位置及 ChatGPT/Claude 可用性；面板手动检测
+#!author=Anymoice
+#!homepage=https://github.com/Anymoice/surge
+#!arguments=策略组:Proxy
+
+[Script]
+# 轻量监视：只读取策略组当前选中的节点，不进行网络检测；检测到节点变化后才执行一次完整检测并推送通知。
+Surge-Node-AI-Detector-Watch = type=cron,timeout=20,cronexp="*/5 * * * *",script-path=https://raw.githubusercontent.com/Anymoice/surge/main/Surge-Node-AI-Detector.js,script-update-interval=0,argument=mode=watch&group={{{策略组}}}
+
+# 面板：只有打开/刷新面板时才执行完整网络检测。
+Surge-Node-AI-Detector-Panel = type=generic,timeout=30,script-path=https://raw.githubusercontent.com/Anymoice/surge/main/Surge-Node-AI-Detector.js,script-update-interval=0,argument=mode=panel&group={{{策略组}}}
+
+[Panel]
+Surge-Node-AI-Detector = title=节点 AI 检测,content=打开面板后检测当前节点,style=info,icon=network.badge.shield.half.filled,script-name=Surge-Node-AI-Detector-Panel,update-interval=0
