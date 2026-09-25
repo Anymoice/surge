@@ -1,8 +1,0 @@
-#!name = IP.NET.COFFEE 快捷入口
-#!desc = 点击面板直接跳转到 https://ip.net.coffee，用于快速打开 IP 检测页面
-#!category = 面板
-#!author = Anymoice
-#!homepage = https://github.com/Anymoice/surge
-
-[Panel]
-IP 检测工具箱 = title=🌐 IP 检测工具箱, content=点击跳转 ip.net.coffee, icon=safari, url=https://ip.net.coffee
