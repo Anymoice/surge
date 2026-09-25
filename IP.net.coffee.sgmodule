@@ -1,9 +1,0 @@
-#!name=IP.net.coffee
-#!desc=点击面板后发送通知，点按通知即可打开 IP.net.coffee
-#!system=ios,mac
-
-[Panel]
-IP.net.coffee = title="IP.net.coffee",content="点击此面板即可发送通知并打开网站",icon="safari.fill",icon-color="#007AFF",script-name=ip-net-coffee
-
-[Script]
-ip-net-coffee = type=generic,script-path=ip-net-coffee.js
