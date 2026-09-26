@@ -1,0 +1,11 @@
+#!name = IP.NET.COFFEE 快捷入口
+#!desc = 点击面板刷新按钮会弹出系统通知，点击通知即可跳转到 https://ip.net.coffee
+#!category = 面板
+#!author = Anymoice
+#!homepage = https://github.com/Anymoice/surge
+
+[Panel]
+IP 检测工具箱 = title=🌐 IP.NET.COFFEE, content=点击刷新按钮跳转, icon=safari, script-name=ip-coffee-jump, update-interval=86400
+
+[Script]
+ip-coffee-jump = type=generic, timeout=15, script-path=https://raw.githubusercontent.com/Anymoice/surge/main/Scripts/ip-coffee-jump.js
